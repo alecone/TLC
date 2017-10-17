@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.4.1)
-
+project(TLC)
 
 add_library( # Sets the name of the library.
              native-lib
@@ -13,6 +13,10 @@ add_library( # Sets the name of the library.
 add_library(kiss_fft
             SHARED
             src/main/cpp/kiss_fft.c)
+
+add_library(provaMain
+            SHARED
+            src/main/cpp/provaMain.c)
 
 
 include_directories(src/main/include/)
@@ -40,3 +44,14 @@ target_link_libraries( # Specifies the target library.
 
                        # included in the NDK.
                        ${log-lib} )
+
+target_link_libraries( # Specifies the target library.
+                        provaMain
+
+                       # Links the target library to the log library
+
+                       # included in the NDK.
+                       ${log-lib} )
+
+#project (TLC)
+#add_executable(TLC provaMain.c)

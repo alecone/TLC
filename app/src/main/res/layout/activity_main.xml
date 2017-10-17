@@ -7,21 +7,6 @@
     tools:context="unipg.tlc.MainActivity">
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World 2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintVertical_bias="0.367" />
-
-    <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -38,9 +23,9 @@
 
     <Button
         android:id="@+id/button1"
-        android:layout_width="81dp"
-        android:layout_height="40dp"
-        android:text="Enter"
+        android:layout_width="88dp"
+        android:layout_height="48dp"
+        android:text="START"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -49,13 +34,14 @@
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintBottom_creator="1"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintVertical_bias="0.167" />
+        app:layout_constraintVertical_bias="0.123"
+        app:layout_constraintHorizontal_bias="0.501" />
 
-    <Button
-        android:id="@+id/button2"
+    <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter"
+        android:text="longitude"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -64,57 +50,55 @@
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintBottom_creator="1"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintVertical_bias="0.497" />
-
-    <EditText
-        android:id="@+id/editText1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text=""
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintVertical_bias="0.267" />
-
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"
-        android:text=""
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintVertical_bias="0.597" />
-
+        app:layout_constraintVertical_bias="0.238"
+        app:layout_constraintHorizontal_bias="0.166" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Check the structure"
+        android:text="latitude"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
         tools:layout_constraintBottom_creator="1"
         tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1"
-        app:layout_constraintVertical_bias="0.784" />
+        app:layout_constraintVertical_bias="0.317"
+        app:layout_constraintHorizontal_bias="0.166" />
 
+    <TextView
+        android:id="@+id/latitudeValueGPS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0.0000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintVertical_bias="0.317"
+        app:layout_constraintHorizontal_bias="0.696" />
+
+    <TextView
+        android:id="@+id/longitudeValueGPS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0.0000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintVertical_bias="0.238"
+        app:layout_constraintHorizontal_bias="0.696" />
 
 </android.support.constraint.ConstraintLayout>

@@ -20,6 +20,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 #include "../include/kiss_fft.h"
 #include "../include/_kiss_fft_guts.h"
 #include <stdbool.h>
+#include <android/log.h>
 
 /***********************************/
 /*****  PULBLIC DECLARATIONS  *****/
@@ -29,6 +30,7 @@ char * getName(ElRos_t Roso){
 }
 char * getAge(ElRos_t Roso){
     char * age = (char*) Roso.age;
+    __android_log_print(ANDROID_LOG_INFO, "Tag", "\r\n\r\n Prova di main \r\n\r\n");
     return age;
 }
 
@@ -65,7 +67,7 @@ ElRos_t Ros = {"Alessio", 23};
 jstring Java_unipg_tlc_MainActivity_peppeName (
         JNIEnv * envi,
         jobject obj){
-    jstring str = "Porco Peppe. Insert your name";
+    jstring str = "TLC_Android Project by RRC";
     return (*envi)->NewStringUTF(envi,str);
 }
 
