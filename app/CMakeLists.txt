@@ -53,5 +53,4 @@ target_link_libraries( # Specifies the target library.
                        # included in the NDK.
                        ${log-lib} )
 
-#project (TLC)
 #add_executable(TLC provaMain.c)
