@@ -111,6 +111,12 @@ public class MainActivity extends AppCompatActivity {
                 toggleGPSUpdates(view);
             }
         });
+        final Button btnSend = (Button) this.findViewById(R.id.button2);
+        btnSend.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View view) {
+                processData();
+            }
+        });
     }
 
     @Override
@@ -174,6 +180,7 @@ public class MainActivity extends AppCompatActivity {
             mFusedLocationClient.requestLocationUpdates(mLocationRequest,
                     locationListenerGPS,
                     null /* Looper */);
+            Toast.makeText(MainActivity.this, "GPS Provider updating...", Toast.LENGTH_SHORT).show();
             button.setText(R.string.pause);
             if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 // TODO: Consider calling
@@ -201,7 +208,6 @@ public class MainActivity extends AppCompatActivity {
                     public void run() {
                         longitudeValueGPS.setText(longitudeGPS + "");
                         latitudeValueGPS.setText(latitudeGPS + "");
-                        Toast.makeText(MainActivity.this, "GPS Provider update", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -252,4 +258,13 @@ public class MainActivity extends AppCompatActivity {
     public native String peppeAge();
     public native String printStruct(String name, int age);
     //public native int getMain();
+
+    public void processData(){
+        new Thread(new Runnable() {
+            public void run() {
+                Toast.makeText(MainActivity.this, "Start Processing Data...", Toast.LENGTH_SHORT).show();
+                //TODO
+            }
+        }).start();
+    }
 }
