@@ -114,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
         final Button btnSend = (Button) this.findViewById(R.id.button2);
         btnSend.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "Start Processing Data in new Thread...", Toast.LENGTH_SHORT).show();
                 processData();
             }
         });
@@ -262,7 +263,7 @@ public class MainActivity extends AppCompatActivity {
     public void processData(){
         new Thread(new Runnable() {
             public void run() {
-                Toast.makeText(MainActivity.this, "Start Processing Data...", Toast.LENGTH_SHORT).show();
+                Log.d("TAG", "Hello I'm a new thread. My number is: "+this.toString());
                 //TODO
             }
         }).start();
