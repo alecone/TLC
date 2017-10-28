@@ -72,14 +72,13 @@ public class MainActivity extends AppCompatActivity {
                 String action = intent.getAction();
                 if (ACTION_USB_PERMISSION.equals(action)) {
                     synchronized (this) {
-                        tlcDevice = (UsbDevice)intent.getParcelableExtra(UsbManager.EXTRA_DEVICE);
+                        tlcDevice = (UsbDevice) intent.getParcelableExtra(UsbManager.EXTRA_DEVICE);
 
                         if (intent.getBooleanExtra(UsbManager.EXTRA_PERMISSION_GRANTED, false)) {
-                            if(tlcDevice != null){
+                            if (tlcDevice != null) {
                                 Toast.makeText(MainActivity.this, "RTL-USB device NOT connected", Toast.LENGTH_SHORT).show();
                             }
-                        }
-                        else {
+                        } else {
                             Toast.makeText(MainActivity.this, "Permission denied for RTL-USB device", Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -154,16 +153,17 @@ public class MainActivity extends AppCompatActivity {
             mLocationRequest.setInterval(1000);
             mLocationRequest.setFastestInterval(1000);
             mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-            mFusedLocationClient.requestLocationUpdates(mLocationRequest,
-                    locationListenerGPS,
-                    null /* Looper */);
             if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 // TODO: Consider calling
                 /* should never access here*/
                 return;
             }
+            mFusedLocationClient.requestLocationUpdates(mLocationRequest,
+                    locationListenerGPS,
+                    null /* Looper */);
         }
     }
+
     public void toggleGPSUpdates(View view) {
         if (!checkLocation())
             return;
@@ -178,18 +178,17 @@ public class MainActivity extends AppCompatActivity {
             mLocationRequest.setInterval(1000);
             mLocationRequest.setFastestInterval(1000);
             mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+                return;
+            }
             mFusedLocationClient.requestLocationUpdates(mLocationRequest,
                     locationListenerGPS,
                     null /* Looper */);
             Toast.makeText(MainActivity.this, "GPS Provider updating...", Toast.LENGTH_SHORT).show();
             button.setText(R.string.pause);
-            if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                // TODO: Consider calling
-                /* should never access here*/
-                return;
             }
 
-        }
     }
 
     private final LocationCallback locationListenerGPS = new LocationCallback() {
@@ -264,7 +263,13 @@ public class MainActivity extends AppCompatActivity {
         new Thread(new Runnable() {
             public void run() {
                 Log.d("TAG", "Hello I'm a new thread. My number is: "+this.toString());
-                //TODO
+                int idDevice = tlcDevice.getDeviceId();
+                String nameDevice = tlcDevice.getDeviceName();
+                int vendorTLC = tlcDevice.getVendorId();
+                int productTLC = tlcDevice.getProductId();
+                Log.d("TAG", "Id Device: "+idDevice+", name device: "+nameDevice+
+                ", vendor ID: "+vendorTLC+", product ID: "+productTLC);
+
             }
         }).start();
     }
