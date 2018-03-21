@@ -42,8 +42,6 @@ public class MainActivity extends AppCompatActivity {
     // Used to load the 'native-lib' library on application startup.
     static {
         System.loadLibrary("native-lib");
-        System.loadLibrary("kiss_fft");
-        System.loadLibrary("provaMain");
     }
 
     /* Public Variables*/
@@ -99,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
         final TextView tv1 = (TextView) findViewById(R.id.textView1);
-        tv1.setText(peppeName());
+        tv1.setText("AndroidTLCProject");
 
         /* USB_Device staff*/
         mUsbManager = (UsbManager) getSystemService(Context.USB_SERVICE);
@@ -398,10 +396,4 @@ public class MainActivity extends AppCompatActivity {
      * A native method that is implemented by a native library,
      * which is packaged with this application.
      */
-    public native String stringFromJNI();
-    public native String peppeName();
-    public native int dateOfBirth(int age);
-    public native String peppeAge();
-    public native String printStruct(String name, int age);
-    //public native int getMain();
 }
