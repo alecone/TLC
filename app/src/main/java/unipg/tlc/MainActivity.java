@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     // Used to load the 'native-lib' library on application startup.
     static {
         System.loadLibrary("native-lib");
+        System.loadLibrary("cosa_rec");
     }
 
     /* Public Variables*/
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
     public UsbEndpoint tlcEndpointIntr;
     public UsbInterface tlcInterface;
     public PendingIntent mPermissionIntent;
+    public int exit;
 
     public final BroadcastReceiver mUsbReceiver = new BroadcastReceiver() {
         public void onReceive(Context context, Intent intent) {
@@ -150,6 +152,8 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 }
+                exit = print_order_params_ANDROID();
+                Toast.makeText(MainActivity.this, "EXIT C func was " + exit, Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -396,4 +400,5 @@ public class MainActivity extends AppCompatActivity {
      * A native method that is implemented by a native library,
      * which is packaged with this application.
      */
+    public native int print_order_params_ANDROID();
 }

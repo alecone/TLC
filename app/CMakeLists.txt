@@ -20,6 +20,7 @@ endforeach()
 #set(CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS} -mfloat-abi=softfp -mfpu=neon -g -O0")
 
 #ADD LIB COSA_REC THAT WILL BE MODIFIED BY US
+add_library(kiss_fft SHARED src/main/cpp/cosa_rec/kiss_fft.c)
 add_library(cosa_rec SHARED src/main/cpp/cosa_rec/cosa_rec.c)
 
 
@@ -38,8 +39,8 @@ find_library( # Sets the name of the path variable.
               # Specifies the name of the NDK library that
               # you want CMake to locate.
               log )
-
-target_link_libraries(cosa_rec ${log-lib} ${COSA_REC_LIBS})
+#target_link_libraries(kiss_fft ${log-lib} ${COSA_REC_LIBS})
+target_link_libraries(cosa_rec ${log-lib} ${COSA_REC_LIBS} kiss_fft)
 
 target_link_libraries( # Specifies the target library.
                        native-lib
